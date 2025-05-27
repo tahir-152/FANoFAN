@@ -78,7 +78,7 @@ $(document).ready(function () {
 
   // Vertical Scroll Section Logic Start 
 
-      document.addEventListener("DOMContentLoaded", function () {
+     document.addEventListener("DOMContentLoaded", function () {
         const promoCards = document.querySelectorAll(".promo-card");
 
         // Set first card as active initially
@@ -104,7 +104,7 @@ $(document).ready(function () {
         // Observe each card
         promoCards.forEach((card, index) => {
           // Add delay based on index for staggered animation
-          card.style.transitionDelay = `${index * 0.01}s`;
+          card.style.transitionDelay = `${index * 0.1}s`;
           cardObserver.observe(card);
         });
 
