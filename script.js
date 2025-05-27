@@ -57,6 +57,67 @@ $(document).ready(function () {
   
   // Navbar dropDown end
 
+  // Catergory Section Horizontal scroll Start
+        gsap.registerPlugin(ScrollTrigger);
+        
+        const horizontalSection = document.querySelector(".horizontal-scroll");
+        
+        gsap.to(horizontalSection, {
+            x: () => -(horizontalSection.scrollWidth - window.innerWidth),
+            ease: "none",
+            scrollTrigger: {
+                trigger: ".horizontal-wrapper",
+                start: "top top",
+                end: () => `+=${horizontalSection.scrollWidth - window.innerWidth}`,
+                scrub: true,
+                pin: true,
+                anticipatePin: 1
+            }
+        });
+        // Catergory Section Horizontal scroll End 
+
+  // Vertical Scroll Section Logic Start 
+
+      document.addEventListener("DOMContentLoaded", function () {
+        const promoCards = document.querySelectorAll(".promo-card");
+
+        // Set first card as active initially
+        if (promoCards.length > 0) {
+          promoCards[0].classList.add("active");
+        }
+
+        // Intersection Observer for cards
+        const cardObserver = new IntersectionObserver(
+          (entries) => {
+            entries.forEach((entry) => {
+              if (entry.isIntersecting) {
+                entry.target.classList.add("active");
+              }
+            });
+          },
+          {
+            threshold: 0.3,
+            rootMargin: "0px 0px -100px 0px",
+          }
+        );
+
+        // Observe each card
+        promoCards.forEach((card, index) => {
+          // Add delay based on index for staggered animation
+          card.style.transitionDelay = `${index * 0.01}s`;
+          cardObserver.observe(card);
+        });
+
+        // Fallback for browsers that don't support IntersectionObserver
+        if (!("IntersectionObserver" in window)) {
+          promoCards.forEach((card) => {
+            card.classList.add("active");
+          });
+        }
+      });
+
+    //    Vertical Scroll Section Script End
+
   // Login form start
 
 
