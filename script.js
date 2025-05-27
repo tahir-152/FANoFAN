@@ -66,8 +66,8 @@ $(document).ready(function () {
             x: () => -(horizontalSection.scrollWidth - window.innerWidth),
             ease: "none",
             scrollTrigger: {
-                trigger: ".horizontal-wrapper",
-                start: "top top",
+                trigger: ".category-section",
+                start: "top +70px",
                 end: () => `+=${horizontalSection.scrollWidth - window.innerWidth}`,
                 scrub: true,
                 pin: true,

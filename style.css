@@ -267,6 +267,7 @@ nav ul li a:hover {
     background-color: var(--light-color);
     padding: 20px 0;
     overflow: hidden;
+    margin-bottom: 30px;
 }
 
 .marquee-container {
@@ -292,6 +293,14 @@ nav ul li a:hover {
 
  /* Catergory Section Start */
 
+ .category-heading h1{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 45px;
+    font-weight: 600;
+ }
+
         .horizontal-wrapper {
             height: 100%;
             display: flex;
@@ -312,6 +321,7 @@ nav ul li a:hover {
         .main h1{
             color: #fff;
             text-align: center;
+            font-size: 28px;
             margin-top: 10px;
         }
 
@@ -355,7 +365,7 @@ nav ul li a:hover {
       } 
 
       /* .background-container {
-        /* position: relative; */
+        position: relative;
         top: 0;
         left: 0;
         width: 100%;
