@@ -267,7 +267,7 @@ nav ul li a:hover {
     background-color: var(--light-color);
     padding: 20px 0;
     overflow: hidden;
-    margin-bottom: 30px;
+    margin-bottom: 6git 0px;
 }
 
 .marquee-container {
@@ -337,7 +337,16 @@ nav ul li a:hover {
             color: white;
             background-color: #fff;
             border-radius: 20px;
+            transition: all 0.3s ease;
         }
+        .panel:hover{
+            transform: translateY(-10px);
+            transition: all 0.3s ease;
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+        }
+        /* .panel:hover{
+            transform: scale(1.1);
+        } */
         .panel-1{
             margin-left: 10px;
         }
