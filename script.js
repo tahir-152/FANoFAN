@@ -118,6 +118,38 @@ $(document).ready(function () {
 
     //    Vertical Scroll Section Script End
 
+    // Brands Section Start 
+    
+    // Add some interactive hover effects
+        document.querySelectorAll('.brand-card').forEach(card => {
+            card.addEventListener('mouseenter', function() {
+                this.style.transform = 'translateY(-8px) scale(1.02)';
+            });
+            
+            card.addEventListener('mouseleave', function() {
+                this.style.transform = 'translateY(0) scale(1)';
+            });
+        });
+
+        // Intersection Observer for scroll animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.animationPlayState = 'running';
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.brands-section, .features-section').forEach(section => {
+            observer.observe(section);
+        });
+    // Brands Section End
+
   // Login form start
 
 
