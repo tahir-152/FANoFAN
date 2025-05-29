@@ -150,6 +150,159 @@ $(document).ready(function () {
         });
     // Brands Section End
 
+    // Testinomial Section Start 
+
+    class TestimonialCarousel {
+            constructor() {
+                this.track = document.getElementById('carouselTrack');
+                this.indicators = document.querySelectorAll('.indicator');
+                this.cards = document.querySelectorAll('.testimonial-card');
+                this.currentSlide = 0;
+                this.cardWidth = 410; // card width + margin
+                this.totalSlides = this.cards.length;
+                this.isPlaying = true;
+                this.interval = null;
+                this.isDragging = false;
+                this.startX = 0;
+                this.currentX = 0;
+                this.threshold = 50;
+
+                this.init();
+            }
+
+            init() {
+                this.setupAutoplay();
+                this.setupDragControls();
+                this.setupIndicators();
+                this.setupHoverPause();
+            }
+
+            setupAutoplay() {
+                this.interval = setInterval(() => {
+                    if (this.isPlaying && !this.isDragging) {
+                        this.nextSlide();
+                    }
+                }, 4000);
+            }
+
+            setupDragControls() {
+                // Mouse events
+                this.track.addEventListener('mousedown', (e) => this.startDrag(e));
+                document.addEventListener('mousemove', (e) => this.drag(e));
+                document.addEventListener('mouseup', () => this.endDrag());
+
+                // Touch events
+                this.track.addEventListener('touchstart', (e) => this.startDrag(e.touches[0]), { passive: true });
+                document.addEventListener('touchmove', (e) => this.drag(e.touches[0]), { passive: true });
+                document.addEventListener('touchend', () => this.endDrag());
+
+                // Prevent default drag behavior
+                this.track.addEventListener('dragstart', (e) => e.preventDefault());
+            }
+
+            startDrag(e) {
+                this.isDragging = true;
+                this.startX = e.clientX;
+                this.track.style.cursor = 'grabbing';
+                this.track.style.transition = 'none';
+            }
+
+            drag(e) {
+                if (!this.isDragging) return;
+                
+                this.currentX = e.clientX;
+                const deltaX = this.currentX - this.startX;
+                const currentTransform = -this.currentSlide * this.cardWidth;
+                this.track.style.transform = `translateX(${currentTransform + deltaX}px)`;
+            }
+
+            endDrag() {
+                if (!this.isDragging) return;
+                
+                this.isDragging = false;
+                this.track.style.cursor = 'grab';
+                this.track.style.transition = 'transform 0.1s cubic-bezier(0.25, 0.46, 0.45, 0.94)';
+
+                const deltaX = this.currentX - this.startX;
+                
+                if (Math.abs(deltaX) > this.threshold) {
+                    if (deltaX > 0) {
+                        this.prevSlide();
+                    } else {
+                        this.nextSlide();
+                    }
+                } else {
+                    this.goToSlide(this.currentSlide);
+                }
+            }
+
+            setupIndicators() {
+                this.indicators.forEach((indicator, index) => {
+                    indicator.addEventListener('click', () => {
+                        this.goToSlide(index);
+                    });
+                });
+            }
+
+            setupHoverPause() {
+                const section = document.querySelector('.testimonials-section');
+                section.addEventListener('mouseenter', () => {
+                    this.isPlaying = false;
+                });
+                section.addEventListener('mouseleave', () => {
+                    this.isPlaying = true;
+                });
+            }
+
+            nextSlide() {
+                this.currentSlide = (this.currentSlide + 1) % (this.totalSlides - 2); // -2 to show 3 cards
+                this.goToSlide(this.currentSlide);
+            }
+
+            prevSlide() {
+                this.currentSlide = this.currentSlide === 0 ? this.totalSlides - 3 : this.currentSlide - 1;
+                this.goToSlide(this.currentSlide);
+            }
+
+            goToSlide(slideIndex) {
+                this.currentSlide = slideIndex;
+                const translateX = -slideIndex * this.cardWidth;
+                this.track.style.transform = `translateX(${translateX}px)`;
+                this.updateIndicators();
+            }
+
+            updateIndicators() {
+                this.indicators.forEach((indicator, index) => {
+                    indicator.classList.toggle('active', index === this.currentSlide);
+                });
+            }
+        }
+
+        // Initialize carousel when DOM is loaded
+        document.addEventListener('DOMContentLoaded', () => {
+            new TestimonialCarousel();
+        });
+
+        // Smooth scroll animations
+        const observeOptions = {
+            threshold: 1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observe = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.animationPlayState = 'running';
+                }
+            });
+        }, observeOptions);
+
+        document.querySelectorAll('.testimonials-section').forEach(section => {
+            observe.observe(section);
+        });
+
+        // Testinomial Section End
+
   // Login form start
 
 

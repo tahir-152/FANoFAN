@@ -1,78 +1,103 @@
 /* Main Brand Section Start */
-        @media (max-width: 1200px) {
-            .brands-grid {
-                grid-template-columns: repeat(3, 1fr);
-            }
-        }
-
-        @media (max-width: 768px) {
-            .brands-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
-            
-            .view-all-link {
-                float: none;
-                display: block;
-                margin-top: 20px;
-            }
-        }
-
-        @media (max-width: 480px) {
-            .brands-grid {
-                grid-template-columns: 1fr;
-            }
-        }
-/* Main Brand Section End */
-/* Footer Media Qurey Start */
-
-@media (max-width: 1024px) {
-    .footer-container {
-        flex-direction: row;
-        justify-content: center;
-        padding: 0 40px;
-    }
-    .footer-column {
-        flex: 1 1 40%;
-        margin: 15px;
-    }
+@media (max-width: 1200px) {
+  .brands-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
 }
 
 @media (max-width: 768px) {
-    .footer-container {
-        flex-direction: column;
-        align-items: center;
-    }
-    .footer-column {
-        text-align: center;
-        margin: 20px 0;
-    }
-    .footer-bottom {
-        flex-direction: column;
-        text-align: center;
-        gap: 10px;
-    }
-    .payment-icons {
-        justify-content: center;
-    }
+  .brands-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .view-all-link {
+    float: none;
+    display: block;
+    margin-top: 20px;
+  }
 }
 
 @media (max-width: 480px) {
-    .logo {
-        width: 80px;
-    }
-    .footer-column h3 {
-        font-size: 18px;
-    }
-    .footer-column p, .footer-bottom p {
-        font-size: 14px;
-    }
-    .social-icons i {
-        font-size: 16px;
-        margin: 0 8px;
-    }
-    .payment-icons img {
-        width: 24px;
-    }
+  .brands-grid {
+    grid-template-columns: 1fr;
+  }
+}
+/* Main Brand Section End */
+/* Testinomial Section Start */
+@media (max-width: 768px) {
+  .testimonial-card {
+    min-width: 300px;
+    padding: 40px 30px;
+  }
+
+  .section-title {
+    font-size: 2.2rem;
+  }
+
+  .cta-buttons {
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
+@media (max-width: 480px) {
+  .testimonial-card {
+    min-width: 280px;
+    margin: 0 10px;
+  }
+}
+/* Testinomial Section End */
+/* Footer Media Qurey Start */
+
+@media (max-width: 1024px) {
+  .footer-container {
+    flex-direction: row;
+    justify-content: center;
+    padding: 0 40px;
+  }
+  .footer-column {
+    flex: 1 1 40%;
+    margin: 15px;
+  }
+}
+
+@media (max-width: 768px) {
+  .footer-container {
+    flex-direction: column;
+    align-items: center;
+  }
+  .footer-column {
+    text-align: center;
+    margin: 20px 0;
+  }
+  .footer-bottom {
+    flex-direction: column;
+    text-align: center;
+    gap: 10px;
+  }
+  .payment-icons {
+    justify-content: center;
+  }
+}
+
+@media (max-width: 480px) {
+  .logo {
+    width: 80px;
+  }
+  .footer-column h3 {
+    font-size: 18px;
+  }
+  .footer-column p,
+  .footer-bottom p {
+    font-size: 14px;
+  }
+  .social-icons i {
+    font-size: 16px;
+    margin: 0 8px;
+  }
+  .payment-icons img {
+    width: 24px;
+  }
 }
 
 /* Footer Media Qurey Start */
