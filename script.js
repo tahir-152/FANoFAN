@@ -301,7 +301,7 @@ $(document).ready(function () {
             observe.observe(section);
         });
 
-        // Testinomial Section End
+        // Testimonial Section End
 
   // Login form start
 

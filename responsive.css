@@ -1,12 +1,12 @@
-/* Main Brand Section Start */
+/* Popular Item Section Start */
 @media (max-width: 1200px) {
-  .brands-grid {
+  .popular-grid {
     grid-template-columns: repeat(3, 1fr);
   }
 }
 
 @media (max-width: 768px) {
-  .brands-grid {
+  .bpopular-grid {
     grid-template-columns: repeat(2, 1fr);
   }
 
@@ -18,12 +18,12 @@
 }
 
 @media (max-width: 480px) {
-  .brands-grid {
+  .bpopular-grid {
     grid-template-columns: 1fr;
   }
 }
-/* Main Brand Section End */
-/* Testinomial Section Start */
+/* Popular Item Section End */
+/* Testimonial Section Start */
 @media (max-width: 768px) {
   .testimonial-card {
     min-width: 300px;
@@ -46,7 +46,7 @@
     margin: 0 10px;
   }
 }
-/* Testinomial Section End */
+/* Testimonial Section End */
 /* Footer Media Qurey Start */
 
 @media (max-width: 1024px) {
