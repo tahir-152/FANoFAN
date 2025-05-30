@@ -54,121 +54,118 @@ $(document).ready(function () {
   setupDropdown(".menu-shop", dropShop);
   setupDropdown(".menu-signin", dropSignin);
 
-  
   // Navbar dropDown end
 
   // Navbar dropDown Mobile start
 
-    
-  $('.menu-icon').click(function() {
-      $('.menu').slideToggle();
-    });
+  $(".menu-icon").click(function () {
+    $(".menu").slideToggle();
+  });
 
-    $('.menu-signin').click(function() {
-      $('.login-menu').slideToggle();
-    });
-
-
-
+  $(".menu-signin").click(function () {
+    $(".login-menu").slideToggle();
+  });
 
   // Navbar dropDown Mobile end
 
   // Catergory Section Horizontal scroll Start
-        gsap.registerPlugin(ScrollTrigger);
-        
-        const horizontalSection = document.querySelector(".horizontal-scroll");
-        
-        gsap.to(horizontalSection, {
-            x: () => -(horizontalSection.scrollWidth - window.innerWidth),
-            ease: "none",
-            scrollTrigger: {
-                trigger: ".category-section",
-                start: "top +70px",
-                end: () => `+=${horizontalSection.scrollWidth - window.innerWidth}`,
-                scrub: true,
-                pin: true,
-                anticipatePin: 1
-            }
-        });
-        // Catergory Section Horizontal scroll End 
+  gsap.registerPlugin(ScrollTrigger);
 
-  // Vertical Scroll Section Logic Start 
+  const horizontalSection = document.querySelector(".horizontal-scroll");
 
-     document.addEventListener("DOMContentLoaded", function () {
-        const promoCards = document.querySelectorAll(".promo-card");
+  gsap.to(horizontalSection, {
+    x: () => -(horizontalSection.scrollWidth - window.innerWidth),
+    ease: "none",
+    scrollTrigger: {
+      trigger: ".category-section",
+      start: "top +70px",
+      end: () => `+=${horizontalSection.scrollWidth - window.innerWidth}`,
+      scrub: true,
+      pin: true,
+      anticipatePin: 1,
+    },
+  });
+  // Catergory Section Horizontal scroll End
 
-        // Set first card as active initially
-        if (promoCards.length > 0) {
-          promoCards[0].classList.add("active");
-        }
+  // Vertical Scroll Section Logic Start
 
-        // Intersection Observer for cards
-        const cardObserver = new IntersectionObserver(
-          (entries) => {
-            entries.forEach((entry) => {
-              if (entry.isIntersecting) {
-                entry.target.classList.add("active");
-              }
-            });
-          },
-          {
-            threshold: 0.3,
-            rootMargin: "0px 0px -100px 0px",
+  document.addEventListener("DOMContentLoaded", function () {
+    const promoCards = document.querySelectorAll(".promo-card");
+
+    // Set first card as active initially
+    if (promoCards.length > 0) {
+      promoCards[0].classList.add("active");
+    }
+
+    // Intersection Observer for cards
+    const cardObserver = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("active");
           }
-        );
-
-        // Observe each card
-        promoCards.forEach((card, index) => {
-          // Add delay based on index for staggered animation
-          card.style.transitionDelay = `${index * 0.1}s`;
-          cardObserver.observe(card);
         });
+      },
+      {
+        threshold: 0.3,
+        rootMargin: "0px 0px -100px 0px",
+      }
+    );
 
-        // Fallback for browsers that don't support IntersectionObserver
-        if (!("IntersectionObserver" in window)) {
-          promoCards.forEach((card) => {
-            card.classList.add("active");
-          });
-        }
+    // Observe each card
+    promoCards.forEach((card, index) => {
+      // Add delay based on index for staggered animation
+      card.style.transitionDelay = `${index * 0.1}s`;
+      cardObserver.observer(card);
+    });
+
+    // Fallback for browsers that don't support IntersectionObserver
+    if (!("IntersectionObserver" in window)) {
+      promoCards.forEach((card) => {
+        card.classList.add("active");
       });
+    }
+  });
 
-    //    Vertical Scroll Section Script End
+  //    Vertical Scroll Section Script End
 
-    // Brands Section Start 
-    
-    // Add some interactive hover effects
-        document.querySelectorAll('.brand-card').forEach(card => {
-            card.addEventListener('mouseenter', function() {
-                this.style.transform = 'translateY(-8px) scale(1.02)';
-            });
-            
-            card.addEventListener('mouseleave', function() {
-                this.style.transform = 'translateY(0) scale(1)';
-            });
-        });
+  // Brands Section Start
 
-        // Intersection Observer for scroll animations
-        const observerOptions = {
-            threshold: 0.1,
-            rootMargin: '0px 0px -50px 0px'
-        };
+  // Add some interactive hover effects
+  document.querySelectorAll(".brand-card").forEach((card) => {
+    card.addEventListener("mouseenter", function () {
+      this.style.transform = "translateY(-8px) scale(1.02)";
+    });
 
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.style.animationPlayState = 'running';
-                }
-            });
-        }, observerOptions);
+    card.addEventListener("mouseleave", function () {
+      this.style.transform = "translateY(0) scale(1)";
+    });
+  });
 
-        document.querySelectorAll('.brands-section, .features-section').forEach(section => {
-            observer.observe(section);
-        });
-    // Brands Section End
+  // Intersection Observer for scroll animations
+  const observerOptions = {
+    threshold: 0.1,
+    rootMargin: "0px 0px -50px 0px",
+  };
 
-    // Testinomial Section Start 
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        entry.target.style.animationPlayState = "running";
+      }
+    });
+  }, observerOptions);
 
-    class TestimonialCarousel {
+  document
+    .querySelectorAll(".brands-section, .features-section")
+    .forEach((section) => {
+      observer.observe(section);
+    });
+  // Brands Section End
+
+  // Testinomial Section Start
+
+ class TestimonialCarousel {
             constructor() {
                 this.track = document.getElementById('carouselTrack');
                 this.indicators = document.querySelectorAll('.indicator');
@@ -317,10 +314,9 @@ $(document).ready(function () {
             observe.observe(section);
         });
 
-        // Testimonial Section End
+  // Testimonial Section End
 
   // Login form start
-
 
   $("i:nth(0)").click(function () {
     if ($("input:nth(3)").attr("type") == "password") {
@@ -338,43 +334,37 @@ $(document).ready(function () {
     let email = $("input:nth(0)").val();
     let password = $("input:nth(0)").val();
 
-    if(firstName == "") {
+    if (firstName == "") {
       $("span:nth(0)").removeClass("invisible");
     } else {
       $("span:nth(0)").addClass("invisible");
     }
-    if(lastName == "") {
+    if (lastName == "") {
       $("span:nth(1)").removeClass("invisible");
     } else {
       $("span:nth(1)").addClass("invisible");
     }
-    if(email == "") {
+    if (email == "") {
       $("span:nth(2)").removeClass("invisible");
     } else {
       $("span:nth(2)").addClass("invisible");
     }
-    if(password == "") {
+    if (password == "") {
       $("span:nth(3)").removeClass("invisible");
     } else {
       $("span:nth(3)").addClass("invisible");
     }
 
-    if (
-      firstName != "" &&
-      lastName != "" &&
-      email != "" &&
-      password != ""
-    ) {
+    if (firstName != "" && lastName != "" && email != "" && password != "") {
       let data = {
         Name: firstName,
         Last: lastName,
         Email: email,
-        Pass: password
-      }
+        Pass: password,
+      };
       console.log(data);
     }
-  })
+  });
 
   // Login form end
-
 });
