@@ -1,667 +1,81 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>FANoFAN</title>
-    <!-- links  -->
-    <link rel="stylesheet" href="style.css" />
-    <link rel="stylesheet" href="responsive.css" />
-    <link rel="stylesheet" href="animation.css" />
-    <link
-      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/css/bootstrap.min.css"
-      rel="stylesheet"
-      integrity="sha384-4Q6Gf2aSP4eDXB8Miphtr37CMZZQ5oXLH2yaXMJ2w8e2ZtHTl7GptT4jmndRuHDT"
-      crossorigin="anonymous"
-    />
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
-      integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
-      crossorigin="anonymous"
-      referrerpolicy="no-referrer"
-    />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100..700;1,100..700&display=swap"
-      rel="stylesheet"
-    />
-    <!-- links -->
-  </head>
-  <body>
-    <!--  Navbar -->
-    <nav id="nav">
-      <div class="logo">
-        <a href="">
-          <img src="Images/fanofan-simple-logo.png" alt="Logo" />
-        </a>
-      </div>
-      <ul class="nav-text">
-        <li><a href="index.html">Home</a></li>
-        <li><a href="" class="menu-brand">Brands</a></li>
-        <li><a href="" class="menu-shop">Category</a></li>
-        <li><a href="about.html">About</a></li>
-        <li><a href="contact.html">Contact</a></li>
-      </ul>
-      <div class="signin-icon">
-        <ul class="nav-text">
-          <li>
-            <a href=""><i class="fa-solid fa-cart-shopping"></i></a>
-          </li>
-          <li>
-            <a href=""><i class="fa-solid fa-user menu-signin"></i></a>
-          </li>
-        </ul>
-      </div>
-    </nav>
-    <div id="drop-brand">
-      <div class="top-brands">
-        <ul>
-          <h6><a href="">GFC Fans</a></h6>
-          <li><a href="">Nabeel Model 56"</a></li>
-          <li><a href="">Apex</a></li>
-          <li><a href="">Crown Series</a></li>
-          <li><a href="">Marvel Series</a></li>
-          <li><a href="">Aeromax</a></li>
-        </ul>
-        <ul>
-          <h6><a href="">Royal Fans</a></h6>
-          <li><a href="">Royal Deluxe Plus</a></li>
-          <li><a href="">Royal Lifestyle Series</a></li>
-          <li><a href="">Royal Elegant Series</a></li>
-          <li><a href="">Royal Hi-Standard</a></li>
-        </ul>
-        <ul>
-          <h6><a href="">Pak Fans</a></h6>
-          <li><a href="">Classic Series</a></li>
-          <li><a href="">Millet 56"</a></li>
-          <li><a href="">Pearl Model</a></li>
-          <li><a href="">Jazz Model</a></li>
-        </ul>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>FAN O FAN - Buy Now</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+ 
+  
+  <header>
+    <div id="cart-status" style="margin-top: 15px;">Cart: <span id="cart-count">0</span> items</div>
+    <button id="review-cart-btn" onclick="openCart()">Review Cart</button>
+  </header>
+  <main>
+    <section id="offers-section">
+      <h2 class="section-title">Special Offers</h2>
+      <div class="products" id="offers-products"></div>
+5    </section>
+    <section id="premium-section">
+      <h2 class="section-title">Premium Fans</h2>
+      <div class="products" id="premium-products"></div>
+    </section>
+    <section id="all-section">
+      <!-- <h2 class="section-title"></h2> -->
+      <div class="products" id="products"></div>
+    </section>
+  </main>
+
+  <!-- Cart Modal -->
+   <i class="fa-solid fa-cart-plus"></i>
+  <div id="cart-modal" class="modal hidden">
+    <div class="modal-content">
+      <span class="close" onclick="closeCart()">&times;</span>
+      <h2>Your Cart</h2>
+      <div id="cart-items"></div>
+      <div id="cart-total"></div>
+      <label for="cart-payment-method" style="display:block;margin:18px 0 8px 0;text-align:left;">Payment Method</label>
+      <select id="cart-payment-method" style="width:100%;padding:8px 10px;border-radius:6px;border:1px solid #a1887f;font-size:1rem;">
+        <option value="card">Card Payment</option>
+        <option value="cod">Cash on Delivery</option>
+      </select>
+      <button class="pay-btn" onclick="checkoutCart()">Checkout</button>
+    </div>
+  </div>
+
+  <!-- Payment Modal -->
+  <div id="payment-modal" class="modal hidden">
+    <div class="modal-content">
+      <span class="close" onclick="closePaymentModal()">&times;</span>
+      <h2>Card Payment</h2>
+      <div id="product-summary"></div>
+      <form id="payment-form" onsubmit="return handlePayment(event)">
+        <label>
+          Card Number
+          <input type="text" maxlength="19" placeholder="1234 5678 9012 3456" required pattern="\d{4} \d{4} \d{4} \d{4}">
+        </label>
+        <label>
+          Expiry Date
+          <input type="text" maxlength="5" placeholder="MM/YY" required pattern="\d{2}/\d{2}">
+        </label>
+        <label>
+          CVV
+          <input type="password" maxlength="3" placeholder="123" required pattern="\d{3}">
+        </label>
+        <button type="submit" class="pay-btn">Pay Now</button>
+      </form>
+      <div id="payment-success" class="success-message hidden">
+        Payment successful! Thank you for your purchase.
       </div>
     </div>
-    <div id="drop-category">
-      <div class="top-brands">
-        <ul>
-          <h6><a href="">Ceiling Fans</a></h6>
-          <li><a href="">Orient Aeroquiet</a></li>
-          <li><a href="">Big Ass Fans Haiku</a></li>
-          <li><a href="">Hunter Key Biscayne</a></li>
-          <li><a href="">Minka-Aire Wave</a></li>
-        </ul>
-        <ul>
-          <h6><a href="">Table Fans</a></h6>
-          <li><a href="">Rowenta Turbo</a></li>
-          <li><a href="">Dreo Desk Fan</a></li>
-          <li><a href="">Honeywell Kaz HT-904</a></li>
-          <li><a href="">Stadler Form</a></li>
-          <li><a href="">Genesis Clip</a></li>
-        </ul>
-        <ul>
-          <h6><a href="">Pedestal Fans</a></h6>
-          <li><a href="">Usha Maxx Air Ultra</a></li>
-          <li><a href="">Havells Gatik Neo</a></li>
-          <li><a href="">V-Guard Esfera</a></li>
-          <li><a href="">Orient Stand-82</a></li>
-        </ul>
-        <ul>
-          <h6><a href="">Tower Fans</a></h6>
-          <li><a href="">Dreo Cruiser Pro T1</a></li>
-          <li><a href="">Dreo Smart</a></li>
-          <li><a href="">Vornado ARA Oscillating</a></li>
-          <li><a href="">LEVOIT</a></li>
-          <li><a href="">Shark TurboBlade</a></li>
-        </ul>
-      </div>
-    </div>
-    <div id="drop-signin">
-      <li><a href="login.html">Log in</a></li>
-      <li><a href="signup.html">Sign up</a></li>
-    </div>
-    <!--  Navbar End -->
+  </div>
 
-    <!-- Hero Section -->
-    <section id="hero-section">
-      <div class="hero-img">
-        <img src="Images/fan-hero-section.png" alt="" />
-      </div>
-      <div class="hero-text">
-        <h2>FAN <span>o</span> FAN</h2>
-        <p>
-          Feel the Real<br />
-          Difference with Every Spin.
-        </p>
-      </div>
-      <div class="hero-btn">
-        <button>Learn more</button>
-        <button>Buy</button>
-      </div>
-      <div class="hero-scroll">
-        <span>Scroll Down</span>
-        <div class="scroll-icon"></div>
-      </div>
-    </section>
-    <!-- Hero Section End -->
+  <script src="script.js"></script>
 
-    <!-- Brands Marquee Start -->
-    <section class="brands-marquee">
-      <div class="marquee-container">
-        <div class="marquee-content">
-          <span>GFC Fans</span>
-          <span>Royal Fans</span>
-          <span>Pak Fans</span>
-          <span>Super Aisa Fans</span>
-          <span>Khurshid Fans</span>
-          <span>Starco</span>
-          <span>SK Fans</span>
-          <span>Panasonic</span>
-          <span>Luminous</span>
-          <span>V-Guard</span>
-        </div>
-      </div>
-    </section>
-    <!-- Brands Marquee End -->
-
-    <!-- Catergory Section Start -->
-
-    <section class="category-section">
-      <div class="category-heading">
-        <h1>Shop By Category</h1>
-      </div>
-      <div class="horizontal-wrapper">
-        <div class="horizontal-scroll">
-          <div class="main">
-            <div class="panel panel-1">
-              <img src="/Images/Fan-images/2.jpg" alt="" width="300px" />
-            </div>
-            <h1>Celling Fan</h1>
-          </div>
-          <div class="main">
-            <div class="panel panel-2">
-              <img
-                src="/Images/Fan-images/FalseCeilingFans.jpg"
-                alt=""
-                width="300px"
-              />
-            </div>
-            <h1>False Celling Fan</h1>
-          </div>
-          <div class="main">
-            <div class="panel panel-3">
-              <img
-                src="/Images/Fan-images/4_7ee8ccf4-cb0c-4468-a0f0-0b81621b3ebc.webp"
-                alt=""
-                width="300px"
-              />
-            </div>
-            <h1>Wall-Mounted Fan</h1>
-          </div>
-          <div class="main">
-            <div class="panel panel-4">
-              <img
-                src="/Images/Fan-images/table-fan-02-removebg-preview.png"
-                alt=""
-                width="300px"
-              />
-            </div>
-            <h1>Table & Desk Fan</h1>
-          </div>
-          <div class="main">
-            <div class="panel panel-5">
-              <img
-                src="/Images/Fan-images/royal-metal-exhaust-fan-7-shoppingjin.pk.jpg"
-                alt=""
-                width="300px"
-              />
-            </div>
-            <h1>Ventilation Fan</h1>
-          </div>
-          <div class="main">
-            <div class="panel panel-6">
-              <img
-                src="/Images/Fan-images/directional-02.png"
-                alt=""
-                width="300px"
-              />
-            </div>
-            <h1>Floor Fan</h1>
-          </div>
-          <div class="main">
-            <div class="panel panel-7">
-              <img
-                src="/Images/Fan-images/images (1).jpeg"
-                alt=""
-                width="300px"
-              />
-            </div>
-            <h1>Exhaust Fan</h1>
-          </div>
-          <div class="main">
-            <div class="panel panel-8">
-              <img
-                src="/Images/Fan-images/9e2cd3d199e79f5b7e456788cb9d18e3.jpg_720x720q80.jpg"
-                alt=""
-                width="300px"
-              />
-            </div>
-            <h1>Tower Fan</h1>
-          </div>
-          <div class="main">
-            <div class="panel panel-9">
-              <img
-                src="/Images/Fan-images/PedestalFanDeluxe2.jpg"
-                alt=""
-                width="300px"
-              />
-            </div>
-            <h1>Pedestal Fan</h1>
-          </div>
-          <div class="main">
-            <div class="panel panel-10">
-              <img
-                src="/Images/Fan-images/FS45-5-front.png"
-                alt=""
-                width="300px"
-                height="350px"
-              />
-            </div>
-            <h1>Stand Fan</h1>
-          </div>
-          <div class="main">
-            <div class="panel panel-11">
-              <img
-                src="/Images/Fan-images/Majestic.webp"
-                alt=""
-                width="300px"
-              />
-            </div>
-            <h1>Mystic Mist Fan</h1>
-          </div>
-          <div class="main-1">
-            <!-- <div class="panel-14 panel-12"><img src="/Images/Fan images/Majestic.webp" alt="" width="300px"></div> -->
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Catergory Section End -->
-
-    <!-- Vertical Scroll Section  Start -->
-
-    <div class="promo-section">
-      <div class="background-container"></div>
-      <div class="cards-container">
-        <div class="promo-card">
-          <img
-            src="/Images/Fan-images/5945ffac-0819-460c-b424-40e42fa1422a.png"
-            alt="Modern Fan"
-            class="fan-image"
-          />
-          <h3>New Series</h3>
-          <h2>iTRUBO 30 WATTS</h2>
-          <p>
-            Empower Your Savings upto 75%. iTurbo 30 Watts Mode gives you the
-            Maximum Savings up to 75%.
-          </p>
-          <a href="#" class="cta">Learn More</a>
-          <a href="#" class="cta">Shop Now</a>
-        </div>
-
-        <div class="promo-card">
-          <img
-            src="/Images/Fan-images/e5adb668-79c9-40a9-8835-0c6538784a53.png"
-            alt="Ceiling Fan"
-            class="fan-image"
-          />
-          <h3>NEW ARRIVAL</h3>
-          <h2>AC/DC RECHARGEABLE</h2>
-          <p>
-            Rechargeable ceiling fan automatically transitions between battery
-            and regular supply, so you never miss a beat.
-          </p>
-          <a href="#" class="cta">View More <span class="arrow">→</span></a>
-          <a href="#" class="cta">Buy Now <span class="arrow">→</span></a>
-        </div>
-
-        <div class="promo-card">
-          <img
-            src="/Images/Fan-images/0a3736cd-4fbd-480b-833b-ee35ad793f2d.png"
-            alt="Stylish Fan"
-            class="fan-image"
-          />
-          <h3>SMART SERIES</h3>
-          <h2>SMART ORNAMENT</h2>
-          <p>
-            <strong>STAY COOL, STAY STYLISH.</strong> Transform your home with
-            fans that not only cool but also add a touch of elegance.
-          </p>
-          <a href="#" class="cta">Explore</a>
-          <a href="#" class="cta">Shop Now</a>
-        </div>
-
-        <div class="promo-card">
-          <img
-            src="/Images/Fan-images/9cd938a4-303f-4b9a-8a9a-29af7bf030d0.png"
-            alt="Powerful Fan"
-            class="fan-image"
-          />
-          <h3>DELUXE SERIES</h3>
-          <h2>DELUXE PEDESTAL FANS</h2>
-          <p>
-            Dive into our selection of high-performance fans designed to keep
-            you comfortable all year round.
-          </p>
-          <a href="#" class="cta">Discover <span class="arrow">→</span></a>
-        </div>
-
-        <div class="promo-card last-card">
-          <img
-            src="/Images/Fan-images/ca065cdf-4acc-4f8d-b6c4-57f5bd901db3.png"
-            alt="Powerful Fan"
-            class="fan-image"
-          />
-          <h3>BREEZE SERIES</h3>
-          <h2>TOWER COOLER</h2>
-          <p>
-            <strong>ELEGANT POWER, SILENT FLOW.</strong> Redefine your space
-            with tower fans that offer quiet, efficient cooling in a sleek
-            vertical design perfect for modern living.
-          </p>
-          <a href="#" class="cta">Learn More</a>
-          <a href="#" class="cta">Shop Now</a>
-        </div>
-      </div>
-    </div>
-
-    <!-- Vertical Scroll Section  End -->
-
-    <!-- Brands Section Start -->
-    <!-- Main Brands Section -->
-    <section class="brands-section">
-      <div class="container">
-        <div class="brands-header">
-          <h2 class="brands-title">Shopping by</h2>
-          <h3 class="brands-subtitle">BRANDS</h3>
-          <p class="brands-description">
-            Discover lots products from popular brands
-          </p>
-          <a href="#" class="view-all-link">VIEW ALL BRANDS</a>
-        </div>
-
-        <div class="brands-grid">
-          <!-- Royal Card -->
-          <div class="brand-card Royal-card">
-            <div class="brand-overlay">
-              <div class="brand-logo">
-                <img
-                  src="/Images/Banner-images/RF_InverterFans.png"
-                  alt="Royal Fans"
-                />
-                <circle cx="50" cy="30" r="15" fill="#ff6b35" />
-                <rect
-                  x="35"
-                  y="45"
-                  width="30"
-                  height="40"
-                  rx="5"
-                  fill="#ff6b35"
-                />
-              </div>
-              <div class="brand-info">
-                <div class="brand-name">Royal</div>
-              </div>
-            </div>
-          </div>
-
-          <!-- GFC Card -->
-          <div class="brand-card GFC-card">
-            <div class="brand-overlay">
-              <div class="brand-logo">
-                <img src="/Images/Banner-images/logo.png" alt="GFC Fans" />
-              </div>
-              <div class="brand-info">
-                <div class="brand-name">GFC</div>
-              </div>
-            </div>
-          </div>
-
-          <!-- Super Aisa Card -->
-          <div class="brand-card Super-Aisa-card">
-            <div class="brand-overlay">
-              <div class="brand-logo">
-                <img
-                  src="/Images/Banner-images/superasia-logo-1_648e69c7-5a0e-45b2-ab33-38b33e947983_330x.png"
-                  alt=""
-                />
-              </div>
-              <div class="brand-info">
-                <div class="brand-name">Super Aisa</div>
-              </div>
-            </div>
-          </div>
-
-          <!-- Sk Card -->
-          <div class="brand-card Sk-card">
-            <div class="brand-overlay">
-              <div class="brand-logo">
-                <img
-                  src="/Images/Banner-images/Sk-Fans-logo.png"
-                  alt="Sk-Fans"
-                />
-              </div>
-              <div class="brand-info">
-                <div class="brand-name">Sk-Fans</div>
-              </div>
-            </div>
-          </div>
-
-          <!-- Khurshid Card -->
-          <div class="brand-card Khurshid-card">
-            <div class="brand-overlay">
-              <div class="brand-logo">
-                <img
-                  src="/Images/Banner-images/Khurshid-Fans-English-Logo-600x232.png"
-                  alt=""
-                />
-              </div>
-              <div class="brand-info">
-                <div class="brand-name">Khurshid Fans</div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-    <!-- Brands Section End -->
-
-    <!-- Testimonials Section Start -->
-    <section class="testimonials-section">
-      <div class="container">
-        <h2 class="section-title">What Our Customers Say</h2>
-
-        <div class="carousel-container">
-          <div class="carousel-track" id="carouselTrack">
-            <!-- Testimonial 1 -->
-            <div class="testimonial-card">
-              <div class="customer-avatar">
-                <img src="/Images/Banner-images/person_1_sm.jpg" width='80'
-                height='80' alt="Alexis Watson">
-              </div>
-              <h3 class="customer-name">Alexis Watson</h3>
-              <div class="quote-mark">"</div>
-              <p class="testimonial-text">
-                Wanting to create an energy-efficient dining area filled with
-                natural light, I relied on FANoFAN over every other to help
-                distribute and circulate the air
-              </p>
-            </div>
-
-            <!-- Testimonial 2 -->
-            <div class="testimonial-card">
-              <div class="customer-avatar">
-                <img src="/Images/Banner-images/person_2_sm.jpg" width='80'
-                height='80' alt="Devin Bridges">
-              </div>
-              <h3 class="customer-name">Devin Bridges</h3>
-              <div class="quote-mark">"</div>
-              <p class="testimonial-text">
-                FANoFAN help us cut down on our air conditioning load and our
-                utility bill. We cut 15 percent off our bill at a time when
-                everybody else is seeing a 20 percent increase.
-              </p>
-            </div>
-
-            <!-- Testimonial 3 -->
-            <div class="testimonial-card">
-              <div class="customer-avatar">
-                <img src="/Images/Banner-images/person_3_sm.jpg" width='80'
-                height='80' alt="Joshua Jon">
-              </div>
-              <h3 class="customer-name">Joshua Jon</h3>
-              <div class="quote-mark">"</div>
-              <p class="testimonial-text">
-                The return on investment is amazing with FANoFAN. Our production
-                areas have gone beyond belief, the fans doubled our capacity to
-                be able to produce
-              </p>
-            </div>
-
-            <!-- Additional testimonials for smooth carousel -->
-            <div class="testimonial-card">
-              <div class="customer-avatar">
-                <img src="/Images/Banner-images/person-4-sm.jpg" width='80'
-                height='80' alt="Sarah Mitchell">
-              </div>
-              <h3 class="customer-name">Sarah Mitchell</h3>
-              <div class="quote-mark">"</div>
-              <p class="testimonial-text">
-                Outstanding service and quality products. The team went above
-                and beyond to ensure our complete satisfaction. Highly recommend
-                to anyone looking for excellence.
-              </p>
-            </div>
-
-            <div class="testimonial-card">
-              <div class="customer-avatar">
-                <img src="/Images/Banner-images/person-5-sm.jpg" width='80'
-                height='80' alt="Michael Chen">
-              </div>
-              <h3 class="customer-name">Michael Chen</h3>
-              <div class="quote-mark">"</div>
-              <p class="testimonial-text">
-                Incredible results in just the first month. The efficiency
-                improvements were immediately noticeable and the support team
-                was fantastic throughout the process.
-              </p>
-            </div>
-            <div class="testimonial-card">
-              <div class="customer-avatar">
-                <img src="/Images/Banner-images/person-6-sm.jpg" width='80'
-                height='80' alt="Michael Chen">
-              </div>
-              <h3 class="customer-name">Michael Chen</h3>
-              <div class="quote-mark">"</div>
-              <p class="testimonial-text">
-                Incredible results in just the first month. The efficiency
-                improvements were immediately noticeable and the support team
-                was fantastic throughout the process.
-              </p>
-            </div>
-            <div class="testimonial-card">
-              <div class="customer-avatar">
-                <img src="/Images/Banner-images/person-7-sm.jpg" width='80'
-                height='80' alt="Michael Chen">
-              </div>
-              <h3 class="customer-name">Michael Chen</h3>
-              <div class="quote-mark">"</div>
-              <p class="testimonial-text">
-                Incredible results in just the first month. The efficiency
-                improvements were immediately noticeable and the support team
-                was fantastic throughout the process.
-              </p>
-            </div>
-          </div>
-        </div>
-
-        <div class="carousel-indicators" id="indicators">
-          <div class="indicator active"></div>
-          <div class="indicator"></div>
-          <div class="indicator"></div>
-          <div class="indicator"></div>
-          <div class="indicator"></div>
-        </div>
-      </div>
-    </section>
-    <!--Testimonials Section End-->
-
-    <!--   Footer -->
-    <footer class="footer">
-      <div class="footer-container">
-        <div class="footer-column">
-          <img src="logo.png" alt="GFC Logo" class="logo" />
-          <p>
-            For the last three decades, G.F.C has introduced innovative fan
-            models to satisfy the needs of its customers.
-          </p>
-          <div class="social-icons">
-            <i class="fab fa-facebook-f"></i>
-            <i class="fab fa-instagram"></i>
-            <i class="fab fa-youtube"></i>
-            <i class="fab fa-tiktok"></i>
-          </div>
-        </div>
-        <div class="footer-column">
-          <h3>About GFC</h3>
-          <div class="line"></div>
-          <p>
-            1st floor, Plaza N0. 11,<br />Block-MB, Phase-6C,<br />DHA, Lahore
-          </p>
-          <p>+92-42-37132812</p>
-          <p>gfc@gfcfan.com</p>
-        </div>
-        <div class="footer-column">
-          <h3>Quick links</h3>
-          <div class="line"></div>
-          <p>Explore</p>
-          <p>Products</p>
-          <p>Contact</p>
-        </div>
-        <div class="footer-column">
-          <h3>Customer Support</h3>
-          <div class="line"></div>
-          <p>Privacy Policy</p>
-          <p>Terms of Service</p>
-          <p>Refund Policy</p>
-          <p>Shipping Policy</p>
-        </div>
-      </div>
-      <div class="footer-bottom">
-        <p>© 2025, GFC Powered by ADSnDESIGN</p>
-        <div class="payment-icons">
-          <img src="visa.png" alt="Visa" />
-          <img src="mastercard.png" alt="Mastercard" />
-          <img src="ssl.png" alt="SSL Secure" />
-        </div>
-      </div>
-    </footer>
-
-    <!--  Footer End -->
-
-    <script
-      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/js/bootstrap.bundle.min.js"
-      integrity="sha384-j1CDi7MgGQ12Z7Qab0qlWQ/Qqz24Gc6BM0thvEMVjHnfYGF0rmFCozFSxQBxwHKO"
-      crossorigin="anonymous"
-    ></script>
-    <script
-      src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"
-      integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g=="
-      crossorigin="anonymous"
-      referrerpolicy="no-referrer"
-    ></script>
-    <!-- GSAP CDN -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
-    <script src="script.js"></script>
-  </body>
-</html>
+  <footer>
+    <p>&copy; 2025 FAN O FAN. All rights reserved.</p>
+  </footer>
+</body>
+</html> 
