@@ -10,7 +10,14 @@ html {
 }
 
 :root {
+  --black: #000;
+  --white: #fff;
+  --light-color: #f5f6fa;
+  --light-gray: #858383;
+  --dark-gray: #353b48;
   --primary-color: #28180b;
+  --secondary-color: #fbf2df;
+  --accent-color: #432309;
 }
 
 /* Website Scrollbar */
@@ -72,7 +79,7 @@ nav ul li a {
   text-decoration: none;
   font-weight: 320;
   font-size: 16px;
-  color: white;
+  color: var(--white);
   transition: all 0.2s;
   user-select: none;
 }
@@ -96,7 +103,7 @@ nav ul li a:hover {
   width: 100%;
   height: 40vh;
   background-color: var(--primary-color);
-  color: white;
+  color: var(--white);
   user-select: none;
 }
 
@@ -108,7 +115,7 @@ nav ul li a:hover {
   height: 75px;
   right: 170px;
   background-color: var(--primary-color);
-  color: white;
+  color: var(--white);
 }
 
 #drop-signin li {
@@ -118,7 +125,7 @@ nav ul li a:hover {
 }
 #drop-signin li a {
   text-decoration: none;
-  color: white;
+  color: var(--white);
   font-size: 16px;
   font-weight: 320;
 }
@@ -135,14 +142,14 @@ nav ul li a:hover {
 
 .top-brands li a {
   text-decoration: none;
-  color: white;
+  color: var(--white);
   font-size: 16px;
   font-weight: 320;
 }
 
 .top-brands h6 a {
   text-decoration: none;
-  color: white;
+  color: var(--white);
   font-size: 25px;
   font-weight: 430;
 }
@@ -204,7 +211,7 @@ nav ul li a:hover {
   padding: 10px 20px;
   background-color: var(--primary-color);
   border: 1px solid var(--primary-color);
-  color: white;
+  color: var(--white);
   font-weight: 320;
   font-size: 16px;
 }
@@ -219,10 +226,10 @@ nav ul li a:hover {
 
 #hero-section .hero-btn button:hover {
   background-color: #311d0e;
-  color: white;
+  color: var(--white);
   transition: all 0.2s;
 }
-.hero-scroll {
+/* .hero-scroll {
   position: absolute;
   bottom: 30px;
   display: flex;
@@ -252,7 +259,7 @@ nav ul li a:hover {
   background-color: #000;
   border-radius: 2px;
   animation: scroll 2s infinite;
-}
+} */
 
 /* Hero Section End */
 
@@ -262,7 +269,7 @@ nav ul li a:hover {
   background-color: var(--light-color);
   padding: 20px 0;
   overflow: hidden;
-  margin-bottom: 6git 0px;
+  margin-bottom: 60px;
 }
 
 .marquee-container {
@@ -302,7 +309,12 @@ nav ul li a:hover {
   align-items: center;
   overflow: hidden;
   position: relative;
-  background: #edecec;
+  background: rgba(246, 245, 245, 0.64);
+border-radius: 16px;
+box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+backdrop-filter: blur(6.9px);
+-webkit-backdrop-filter: blur(6.9px);
+border: 2px solid rgba(246, 245, 245, 0.28);
 }
 
 .horizontal-scroll {
@@ -314,7 +326,7 @@ nav ul li a:hover {
 }
 
 .main h1 {
-  color: #000;
+  color: var(--primary-color);
   text-align: center;
   font-size: 28px;
   margin-top: 10px;
@@ -329,8 +341,8 @@ nav ul li a:hover {
   justify-content: center;
   font-size: 8px;
   font-weight: bold;
-  color: white;
-  background-color: #fff;
+  color: var(--white);
+  background-color: var(--white);
   border-radius: 20px;
   transition: all 0.3s ease;
 }
@@ -392,7 +404,7 @@ nav ul li a:hover {
 
 .promo-card {
   width: 65%;
-  max-width: 500px;
+  max-width: 450px;
   border-radius: 12px;
   padding: 30px;
   margin: 30px 0;
@@ -410,12 +422,12 @@ nav ul li a:hover {
 .promo-card:nth-child(3),
 .promo-card:nth-child(4),
 .promo-card:nth-child(5) {
-  background: rgba(173, 173, 173, 0.27);
-  border-radius: 16px;
-  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-  backdrop-filter: blur(3.4px);
-  -webkit-backdrop-filter: blur(3.4px);
-  border: 1px solid rgba(173, 173, 173, 0.3);
+ background: rgba(243, 243, 243, 0.51);
+border-radius: 16px;
+box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+backdrop-filter: blur(8.6px);
+-webkit-backdrop-filter: blur(8.6px);
+border: 1px solid rgba(243, 243, 243, 0.28);
 }
 
 .promo-card.active {
@@ -426,7 +438,7 @@ nav ul li a:hover {
 .promo-card h3 {
   font-size: 1rem;
   margin-bottom: 10px;
-  color: #2a5ea7;
+  color: var(--primary-color);
   text-transform: uppercase;
 }
 
@@ -447,8 +459,8 @@ nav ul li a:hover {
 .promo-card .cta {
   display: inline-block;
   padding: 10px 25px;
-  background-color: #2a5ea7;
-  color: white;
+  background-color: var(--accent-color);
+  color: var(--white);
   text-decoration: none;
   border-radius: 25px;
   font-weight: bold;
@@ -461,7 +473,8 @@ nav ul li a:hover {
 }
 
 .promo-card .cta:hover {
-  background-color: #1d4b8f;
+  background-color: var(--secondary-color);
+  color: var(--black);
   transform: translateY(-2px);
 }
 
@@ -483,38 +496,12 @@ nav ul li a:hover {
   border-radius: 8px;
 }
 
-@media (max-width: 768px) {
-  .cards-container {
-    padding-left: 5%;
-    padding-right: 5%;
-    padding-top: 15em;
-  }
-
-  .promo-card {
-    width: 90%;
-    padding: 25px 20px;
-    min-height: 60vh;
-  }
-
-  .promo-card h2 {
-    font-size: 1.8rem;
-  }
-
-  .promo-card h3 {
-    font-size: 1.3rem;
-  }
-
-  .fan-image {
-    height: 200px;
-  }
-}
-
 /* Vertical Scroll Section Css End */
 
 /* Main Brands Section */
         .brands-section {
             padding: 80px 0;
-            background: white;
+            background: var(--white);
             opacity: 0;
             animation: fadeInUp 1s ease-out 0.3s forwards;
         }
@@ -526,13 +513,13 @@ nav ul li a:hover {
         .brands-title {
             font-size: 2.5rem;
             font-weight: 600;
-            color: #2c3e50;
+            color: var(--dark-gray);
             margin-bottom: 15px;
             letter-spacing: -0.5px;
         }
 
         .brands-subtitle {
-            color: #432309;
+            color: var(--accent-color);
             font-size: 2.5rem;
             font-weight: 700;
             text-transform: uppercase;
@@ -541,7 +528,7 @@ nav ul li a:hover {
         }
 
         .brands-description {
-            color: #6b7280;
+            color: var(--light-gray);
             font-size: 1.1rem;
             line-height: 1.6;
             max-width: 500px;
@@ -560,8 +547,8 @@ nav ul li a:hover {
         }
 
         .view-all-link:hover {
-            color: #432309;
-            border-bottom-color: #28180b;
+            color: var(--accent-color);
+            border-bottom-color: var(--primary-color);
             transform: translateY(-1px);
         }
 
@@ -637,7 +624,7 @@ nav ul li a:hover {
         .brand-logo {
             width: 60px;
             height: 60px;
-            background: white;
+            background: var(--white);
             border-radius: 50%;
             display: flex;
             align-items: center;
@@ -658,7 +645,7 @@ nav ul li a:hover {
         }
 
         .brand-info {
-            color: white;
+            color: var(--white);
             margin-top: auto;
         }
 
@@ -752,7 +739,7 @@ nav ul li a:hover {
 .testimonial-card {
   min-width: 380px;
   margin: 0 15px;
-  background: white;
+  background: var(--white);
   border-radius: 20px;
   padding: 50px 40px;
   box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08);
@@ -845,7 +832,7 @@ nav ul li a:hover {
 
 .footer {
   background-color: #2e2e2e;
-  color: #fff;
+  color: var(--white);
   padding: 40px 0 20px;
   width: 100%;
 }
@@ -874,7 +861,7 @@ nav ul li a:hover {
 
 .footer-column h3 {
   margin-bottom: 10px;
-  color: #fff;
+  color: var(--white);
 }
 
 .footer-column p {
@@ -897,7 +884,7 @@ nav ul li a:hover {
 .social-icons i {
   font-size: 18px;
   margin-right: 15px;
-  color: white;
+  color: var(--white);
   cursor: pointer;
   transition: 0.3s ease;
 }
@@ -1003,7 +990,7 @@ nav ul li a:hover {
 
 .contact-btn:hover {
   background-color: #608ed3;
-  color: #fff;
+  color: var(--white);
 }
 
 .feedback {
@@ -1104,17 +1091,6 @@ form {
 
 .tower-fan-img img {
   animation: tower-fan-animation 2s;
-}
-
-@keyframes tower-fan-animation {
-  from {
-    margin-left: -400px;
-    opacity: 0%;
-  }
-  to {
-    margin-left: 0px;
-    opacity: 100%;
-  }
 }
 
 .user-name {

@@ -1,3 +1,31 @@
+/* Vertical Scroll Scetion Start */
+@media (max-width: 768px) {
+  .cards-container {
+    padding-left: 5%;
+    padding-right: 5%;
+    padding-top: 15em;
+  }
+
+  .promo-card {
+    width: 90%;
+    padding: 25px 20px;
+    min-height: 60vh;
+  }
+
+  .promo-card h2 {
+    font-size: 1.8rem;
+  }
+
+  .promo-card h3 {
+    font-size: 1.3rem;
+  }
+
+  .fan-image {
+    height: 200px;
+  }
+}
+/* Vertical Scroll Scetion End */
+
 /* Popular Item Section Start */
 @media (max-width: 1200px) {
   .brands-grid {

@@ -87,3 +87,18 @@
             }
         }
 /* Testimonial Section End */
+
+/* Login Page Start*/
+
+@keyframes tower-fan-animation {
+  from {
+    margin-left: -400px;
+    opacity: 0%;
+  }
+  to {
+    margin-left: 0px;
+    opacity: 100%;
+  }
+}
+
+/* Login Page Start*/
