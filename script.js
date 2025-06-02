@@ -54,17 +54,25 @@ $(document).ready(function () {
   setupDropdown(".menu-shop", dropShop);
   setupDropdown(".menu-signin", dropSignin);
 
+  
   // Navbar dropDown end
 
+  
   // Navbar dropDown Mobile start
 
-  $(".menu-icon").click(function () {
-    $(".menu").slideToggle();
-  });
+    
+  $('.menu-icon').click(function() {
+      $('.menu').slideToggle();
+    });
 
-  $(".menu-signin").click(function () {
-    $(".login-menu").slideToggle();
-  });
+    $('.menu-signin').click(function() {
+      $('.login-menu').slideToggle();
+    });
+
+    $('.drop-mobile').click(function() {
+      $('.drop-mobile-shop').slideToggle();
+    });
+
 
   // Navbar dropDown Mobile end
 
@@ -128,6 +136,22 @@ $(document).ready(function () {
   });
 
   //    Vertical Scroll Section Script End
+
+  // Feature Section Start
+  $(document).ready(function () {
+        $(".feature-products-2").hide();
+
+        $(".feature-products-1 .f-forward-btn").click(function () {
+          $(".feature-products-1").hide();
+          $(".feature-products-2").show();
+        });
+
+        $(".feature-products-2 .f-back-btn").click(function () {
+          $(".feature-products-2").hide();
+          $(".feature-products-1").show();
+        });
+      });
+  // Feature Section End
 
   // Brands Section Start
 
@@ -316,7 +340,8 @@ $(document).ready(function () {
 
   // Testimonial Section End
 
-  // Login form start
+   // Login form start
+
 
   $("i:nth(0)").click(function () {
     if ($("input:nth(3)").attr("type") == "password") {
@@ -334,37 +359,42 @@ $(document).ready(function () {
     let email = $("input:nth(0)").val();
     let password = $("input:nth(0)").val();
 
-    if (firstName == "") {
+    if(firstName == "") {
       $("span:nth(0)").removeClass("invisible");
     } else {
       $("span:nth(0)").addClass("invisible");
     }
-    if (lastName == "") {
+    if(lastName == "") {
       $("span:nth(1)").removeClass("invisible");
     } else {
       $("span:nth(1)").addClass("invisible");
     }
-    if (email == "") {
+    if(email == "") {
       $("span:nth(2)").removeClass("invisible");
     } else {
       $("span:nth(2)").addClass("invisible");
     }
-    if (password == "") {
+    if(password == "") {
       $("span:nth(3)").removeClass("invisible");
     } else {
       $("span:nth(3)").addClass("invisible");
     }
 
-    if (firstName != "" && lastName != "" && email != "" && password != "") {
+    if (
+      firstName != "" &&
+      lastName != "" &&
+      email != "" &&
+      password != ""
+    ) {
       let data = {
         Name: firstName,
         Last: lastName,
         Email: email,
-        Pass: password,
-      };
+        Pass: password
+      }
       console.log(data);
     }
-  });
+  })
 
   // Login form end
 });

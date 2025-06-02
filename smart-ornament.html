@@ -1,0 +1,641 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Smart Ornament</title>
+    <link rel="stylesheet" href="responsive.css" />
+    <link rel="shortcut icon" href="https://img.icons8.com/?size=100&id=llkDQNB25U3F&format=png&color=000000" type="image/x-icon">
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      :root {
+  --black: #000;
+  --white: #fff;
+  --light-color: #f5f6fa;
+  --light-gray: #858383;
+  --dark-gray: #353b48;
+  --primary-color: #28180b;
+  --secondary-color: #fbf2df;
+  --accent-color: #432309;
+}
+
+      body {
+        font-family: "Segoe UI", sans-serif;
+        background-color: #ffffff;
+        color: #333;
+      }
+
+      .container-1 {
+        max-width: 100vw;
+        height: 80vh; /* Full viewport height */
+        padding: 5rem;
+        background-image: url("/Images/Banner-images/controlling-ceiling-fan-living-room-260nw-2532564147985.jpg");
+        background-position: top;
+        background-size: cover;
+        background-repeat: no-repeat;
+        display: flex;
+        align-items: center;
+        justify-content: flex-start; /* Align content to the left */
+        overflow: hidden;
+      }
+
+      .hero-1 {
+        width: 500px;
+        padding: 30px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        gap: 25px;
+        background: rgba(255, 255, 255, 0.15);
+        border-radius: 16px;
+        box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+        backdrop-filter: blur(1.5px);
+        -webkit-backdrop-filter: blur(1.5px);
+        border: 1px solid rgba(255, 255, 255, 0.3);
+        color: #000;
+      }
+
+      .hero-1 h1 {
+        font-size: 45px;
+        line-height: 1.2;
+
+        span{
+            font-size: 30px;
+            line-height: 0.9;
+        }
+      }
+
+      .hero-1 p {
+        font-size: 18px;
+        font-weight: 400;
+        line-height: 1.5;
+      }
+
+      .hero-section {
+        width: 100%;
+        background: #f0f4f8;
+        padding: 60px 20px;
+      }
+
+      .hero-content {
+        max-width: 1400px;
+        margin: 0 auto;
+        background-color: var(--white);
+        border-radius: 12px;
+        padding: 40px;
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+      }
+
+      .hero-title {
+        font-size: 36px;
+        color: var(--primary-color);
+        margin-bottom: 30px;
+        text-align: center;
+        line-height: 1.3;
+      }
+      .hero-para{
+        font-size: 17px;
+        margin-bottom: 40px;
+        text-align: center;
+      }
+
+      .features {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 30px;
+        justify-content: space-between;
+      }
+
+      .feature {
+        flex: 1 1 calc(25% - 30px);
+        background-color: #f9f9f9;
+        border-radius: 10px;
+        padding: 25px;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+        transition: transform 0.3s ease;
+      }
+
+      .feature:hover {
+        transform: translateY(-5px);
+      }
+
+      .feature-title {
+        font-size: 20px;
+        color: #111;
+        margin-bottom: 10px;
+      }
+
+      .feature-desc {
+        font-size: 15px;
+        color: #555;
+        line-height: 1.6;
+      }
+
+      .features-section {
+        padding: 60px 20px;
+        background: var(--white);
+        text-align: center;
+      }
+
+      .section-title {
+        font-size: 32px;
+        font-weight: bold;
+        margin-bottom: 40px;
+        color: #1a1a1a;
+      }
+
+      .features-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+        gap: 25px;
+        max-width: 1200px;
+        margin: 0 auto;
+      }
+
+      .feature-box {
+        background: #f0f4f8;
+        border-radius: 12px;
+        padding: 20px;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+        opacity: 0;
+        transform: translateY(20px);
+      }
+
+      .feature-box img {
+        width: 60px;
+        height: 60px;
+        object-fit: contain;
+        margin-bottom: 10px;
+      }
+
+      .feature-box p {
+        font-size: 14px;
+        color: #333;
+        font-weight: 500;
+      }
+
+      .feature-box:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+      }
+
+      .buy-btn {
+        padding: 12px 30px;
+        background: var(--accent-color);
+        color: var(--white);
+        font-size: 16px;
+        border: none;
+        border-radius: 30px;
+        cursor: pointer;
+        /* transition: background 0.3s ease; */
+      }
+
+      .buy-btn:hover {
+        background: var(--secondary-color);
+        color: var(--black);
+      }
+
+      .btn-container {
+        margin-top: 40px;
+        opacity: 0;
+        transform: translateY(20px);
+      }
+
+      /* Animation active class */
+      .animate {
+        opacity: 1 !important;
+        transform: translateY(0) !important;
+        transition: all 0.6s ease;
+      }
+
+      .specs-section {
+  max-width: 800px;
+  margin: 60px auto;
+  background-color: #f7faff;
+  border-radius: 12px;
+  padding: 40px 30px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.07);
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 0.6s ease;
+}
+
+.specs-section.animate {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.specs-title {
+  font-size: 30px;
+  text-align: center;
+  margin-bottom: 30px;
+  color: var(--primary-color);
+  position: relative;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+}
+
+.specs-title::after {
+  content: '';
+  display: block;
+  width: 60px;
+  height: 3px;
+  margin: 10px auto 0;
+  background: var(--accent-color);
+  border-radius: 3px;
+}
+
+.specs-list {
+  list-style: none;
+  padding: 0;
+}
+
+.spec-item {
+  display: flex;
+  justify-content: space-between;
+  padding: 14px 0;
+  border-bottom: 1px solid #e2e6f0;
+  font-size: 16px;
+  font-weight: 500;
+}
+
+.spec-name {
+  color: #1a1a1a;
+  flex: 1;
+}
+
+.spec-value {
+  color: var(--accent-color);
+  flex: 1;
+  text-align: right;
+}
+
+    .review-section, .faq-section{
+      background: var(--white);
+      margin-bottom: 60px;
+      padding: 20px;
+      padding-top: 40px;
+      border-radius: 8px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+
+      h2 {
+        font-size: 35px;
+        margin-bottom: 20px;
+        color: var(--primary-color);
+      text-align: center;
+    }
+
+    }
+    .faq-section{
+      padding-bottom: 50px;
+    }
+        .faq-heading {
+          padding-bottom: 30px;
+        }
+    p {
+      font-size: 16px;
+      color: var(--dark-gray);
+      margin-top: 10px;
+    }
+    
+    .review-section {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 15px;
+      justify-content: center;
+    }
+
+    .review {
+      flex: 1 1 calc(25% - 15px);
+      border: 1px solid #eee;
+      padding: 15px;
+      border-radius: 5px;
+      background-color: #fafafa;
+      min-width: 220px;
+      max-width: 300px;
+    }
+
+    .review h3 {
+      font-size: 18px;
+      margin-bottom: 5px;
+    }
+
+    .review span {
+      color: gold;
+      font-size: 18px;
+    }
+    
+    .faq-item {
+      margin-top: 10px;
+      border: 1px solid #ddd;
+      border-radius: 5px;
+      background: #fdfdfd;
+    }
+
+    .faq-question {
+      background-color: #f1f1f1;
+      padding: 10px;
+      cursor: pointer;
+      font-weight: bold;
+    }
+
+    .faq-answer {
+      display: none;
+      padding: 10px;
+    }
+
+    .faq-item.active .faq-answer {
+      display: block;
+    }
+
+    @media (max-width: 900px) {
+      .review {
+        flex: 1 1 calc(50% - 15px);
+      }
+    }
+
+    @media (max-width: 600px) {
+      .review {
+        flex: 1 1 100%;
+      }
+
+      h2 {
+        font-size: 20px;
+      }
+
+      p, .review h3 {
+        font-size: 14px;
+      }
+    }
+
+@media (max-width: 600px) {
+  .spec-item {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .spec-value {
+    text-align: left;
+    margin-top: 5px;
+  }
+
+  .specs-title {
+    font-size: 24px;
+  }
+
+  .specs-section {
+    padding: 30px 20px;
+  }
+}
+
+
+      @media (max-width: 768px) {
+        .feature {
+          flex: 0 0 100%;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container-1">
+      <div class="hero-1">
+        <h1>SMART ORNAMENT FAN<br><span>PREMIUM DESIGN - ADVANCED CONTROL</span></h1>
+        <p>Welcome to the future of home cooling. The Smart Series combines elegant design with cutting-edge technology, offering unmatched style, silence, and smart control. Perfect for modern interiors and smarter living.</p>
+      </div>
+    </div>
+    <div class="container">
+      <div class="hero-section">
+        <div class="hero-content">
+          <h1 class="hero-title">
+            Smart Ornament Fan – Where Style Meets Intelligence
+          </h1>
+          <p class="hero-para">Designed for those who appreciate aesthetics and technology. From voice control to ultra-quiet performance, this fan is the perfect addition to your smart home setup.</p>
+
+          <div class="features">
+            <div class="feature">
+              <h3 class="feature-title">
+                Voice Assistant Compatible
+              </h3>
+              <p class="feature-desc">
+                Works seamlessly with Alexa, Google Assistant & Siri.
+              </p>
+            </div>
+
+            <div class="feature">
+              <h3 class="feature-title">
+                Decorative Lighting
+              </h3>
+              <p class="feature-desc">
+                Ambient LED ring adds a luxurious glow to your room.
+              </p>
+            </div>
+
+            <div class="feature">
+              <h3 class="feature-title">Ultra Silent BLDC Motor</h3>
+              <p class="feature-desc">
+              Experience high performance with less than 45 dB noise.
+              </p>
+            </div>
+
+            <div class="feature">
+              <h3 class="feature-title">Smart Scheduling & Modes</h3>
+              <p class="feature-desc">
+                Set cooling routines and switch modes using your phone.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <section class="features-section">
+        <h2 class="section-title">Features</h2>
+        <div class="features-grid">
+          <!-- Feature Item -->
+          <div class="feature-box" data-animate>
+            <img src="/Images/Banner-images/5_d50c39a9-5665-478a-9da5-35be1266750e.png" alt="Battery + Electric Support" />
+            <p> Works with both AC and rechargeable DC power</p>
+          </div>
+          <div class="feature-box" data-animate>
+            <img src="/Images/Banner-images/2_7c4219b0-a645-454a-be70-f7660b05b148.png" alt="100% Copper Motor " />
+            <p>Ensures long life and superior performance</p>
+          </div>
+          <div class="feature-box" data-animate>
+            <img src="/Images/Banner-images/1_c860a935-c175-4e27-9998-c5aa3745a207.png" alt="Turbo Breeze Mode " />
+            <p>Instant cooling for extreme heat</p>
+          </div>
+          <div class="feature-box" data-animate>
+            <img src="/Images/Banner-images/17_44982af8-3506-4236-9b44-4770a3bee3b1.png" alt="Smart Remote" />
+            <p>7-speed control with timer and night mode</p>
+          </div>
+          <div class="feature-box" data-animate>
+            <img src="/Images/Banner-images/8_740d1edc-59e1-491a-aace-207c167ffada.png" alt="Silent Operation" />
+            <p>Advanced motor keeps noise under 55 dB</p>
+          </div>
+          <div class="feature-box" data-animate>
+            <img src="/Images/Banner-images/16_171f1c13-ef94-4361-bd53-01e7436cb43c.png" alt="High Airflow" />
+            <p>Delivers strong, wide-area cooling</p>
+          </div>
+          <!-- Add more features here in same format -->
+        </div>
+        <div class="btn-container" data-animate>
+          <button class="buy-btn">Buy Now</button>
+        </div>
+      </section>
+
+      <div class="specs-section" data-animate>
+  <h2 class="specs-title">Technical Specifications</h2>
+  <ul class="specs-list">
+    <li class="spec-item">
+      <span class="spec-name">Power Consumption</span>
+      <span class="spec-value">	28 Watts (BLDC Motor)</span>
+    </li>
+    <li class="spec-item">
+      <span class="spec-name">Blade Size</span>
+      <span class="spec-value">	400 mm</span>
+    </li>
+    <li class="spec-item">
+      <span class="spec-name">Controls</span>
+      <span class="spec-value">	App, Voice, Remote, Touch Panel</span>
+    </li>
+    <li class="spec-item">
+      <span class="spec-name">Lighting</span>
+      <span class="spec-value">	RGB LED Ring with 6 modes</span>
+    </li>
+    <li class="spec-item">
+      <span class="spec-name">Smart Integration</span>
+      <span class="spec-value">Alexa, Google Assistant, iOS/Android</span>
+    </li>
+    <li class="spec-item">
+      <span class="spec-name">Noise Level</span>
+      <span class="spec-value">	≤ 45 dB</span>
+    </li>
+    <li class="spec-item">
+      <span class="spec-name">Material</span>
+      <span class="spec-value">	Aluminum with Wood Finish Blades</span>
+    </li>
+    <li class="spec-item">
+      <span class="spec-name">Charging Time</span>
+      <span class="spec-value">5–6 hours for full charge</span>
+    </li>
+    <li class="spec-item">
+      <span class="spec-name">Warranty</span>
+      <span class="spec-value">3 Years</span>
+    </li>
+  </ul>
+</div>
+
+ <!-- Customer Reviews Section -->
+  <section class="review-section">
+    <h2 class="review-heading">Customer Reviews</h2>
+    <div class="review-section">
+      <div class="review">
+        <h3>Ayesha Khan</h3>
+        <span>★★★★★</span>
+        <p>Stunning! I love how this fan matches my decor and changes color. Super quiet and modern.</p>
+      </div>
+
+      <div class="review">
+        <h3>Rahul Verma</h3>
+        <span>★★★★☆</span>
+        <p>Control from Alexa is a game changer. I can schedule cooling even before I reach home!</p>
+      </div>
+
+      <div class="review">
+        <h3>Natasha Gill</h3>
+        <span>★★★★★</span>
+        <p>The LED ring makes it so beautiful. Guests always ask where I got this fan from.</p>
+      </div>
+
+      <div class="review">
+        <h3>Imran Shaikh</h3>
+        <span>★★★★★</span>
+        <p>Love the silent mode. You forget it's even running. Also great energy savings!</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ Section -->
+  <section class="faq-section">
+    <h2 class="faq-heading">Frequently Asked Questions</h2>
+
+    <div class="faq-item">
+      <div class="faq-question">Does it work with voice assistants?</div>
+      <div class="faq-answer">Yes, it supports Alexa, Google Assistant, and Siri shortcuts.</div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-question">Can I change the LED colors?</div>
+      <div class="faq-answer">Yes, using the app you can switch between 6 different lighting modes.</div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-question">How noisy is this fan?</div>
+      <div class="faq-answer">It runs at ≤ 45 dB—virtually silent, perfect for bedrooms or study areas.</div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-question">Is installation included?</div>
+      <div class="faq-answer">No, but any electrician can install it easily within 30 minutes.</div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-question">Can I operate it without the app?</div>
+      <div class="faq-answer">Yes, it includes a remote control and hidden touch panel for manual operation.</div>
+    </div>
+  </section>
+
+
+    <script>
+      // You can add any interactive functionality here
+      document.addEventListener("DOMContentLoaded", function () {
+        console.log("ROYAL Fans page loaded");
+
+        // Example: Add animation to features on hover
+        const features = document.querySelectorAll(".feature");
+        features.forEach((feature) => {
+          feature.addEventListener("mouseenter", function () {
+            this.style.transform = "translateY(-5px)";
+            this.style.transition = "transform 0.3s ease";
+          });
+
+          feature.addEventListener("mouseleave", function () {
+            this.style.transform = "translateY(0)";
+          });
+        });
+      });
+      // Scroll animation
+      window.addEventListener("scroll", () => {
+        document.querySelectorAll("[data-animate]").forEach((el) => {
+          const rect = el.getBoundingClientRect();
+          if (rect.top < window.innerHeight - 50) {
+            el.classList.add("animate");
+          }
+        });
+      });
+      // Scroll-in animation
+window.addEventListener('scroll', () => {
+  document.querySelectorAll('[data-animate]').forEach(el => {
+    const rect = el.getBoundingClientRect();
+    if (rect.top < window.innerHeight - 50) {
+      el.classList.add('animate');
+    }
+  });
+});
+
+// FAQ section
+
+ document.querySelectorAll('.faq-question').forEach(question => {
+      question.addEventListener('click', () => {
+        const faq = question.parentElement;
+        faq.classList.toggle('active');
+      });
+    });
+
+    </script>
+  </body>
+</html>

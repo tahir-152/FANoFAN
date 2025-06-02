@@ -1,3 +1,275 @@
+/* Navbar responsiveness Start */
+/* Navbar 1440px - 1024px */
+@media (max-width: 1440px) and (min-width:1024px) {
+    nav {
+        height: 10vh;
+    }
+
+    #drop-brand,
+    #drop-category {
+        height: 50vh;
+    }
+
+    #drop-signin {
+        right: 15%;
+        top: 61px;
+    }
+    
+    .top-brands {
+        margin: 50px 0 0 172px;
+    }
+
+    .top-brands li {
+        padding-top: 0px;
+    }
+
+    .top-brands li a {
+        font-size: 15px;
+        font-weight: 320;
+    }
+
+    .top-brands h6 a {
+        font-size: 20px;
+        font-weight: 400;
+    }
+
+}
+
+/* Navbar 1024px */
+
+@media (width:1024px) {
+    .top-brands {
+        margin: 50px 0 0 79px;
+    }
+
+    .top-brands li a {
+        font-size: 15px;
+        font-weight: 200;
+    }
+
+    .top-brands h6 a {
+        font-size: 25px;
+        font-weight: 370;
+    }
+}
+
+
+@media (max-width: 768px) {
+
+    /* Navbar 768px */
+
+    nav {
+        height: 10vh;
+    }
+
+    #drop-brand,
+    #drop-category {
+        height: 46vh;
+    }
+
+    #drop-signin {
+        right: 46px;
+    }
+
+    .top-brands {
+        margin: 30px 0 0 18px;
+    }
+
+    .top-brands li{
+        padding-top: 0;
+    }
+
+    .top-brands li a {
+        font-size: 13px;
+        font-weight: 50;
+    }
+
+    .top-brands h6 a {
+        font-size: 17px;
+        font-weight: 400;
+    }
+
+    /* Hero Section 768px */
+
+    #hero-section .hero-text h2 {
+        font-size: 55px;
+        font-weight: 365;
+        word-spacing: -12px;
+    }
+
+    #hero-section .hero-text h2 span {
+        font-size: 65px;
+        font-weight: 325;
+    }
+
+    #hero-section .hero-text p {
+        font-size: 20px;
+    }
+
+    #hero-section .hero-btn button {
+        padding: 7px 15px;
+        font-size: 13px;
+        font-weight: 300;
+    }
+}
+
+
+@media (max-width:425px) {
+
+    /* Navbar 425px */
+
+    nav {
+        height: 15vh;
+        justify-content: space-between;
+    }
+    .nav-text li{
+        display: none;
+    }
+
+    .signin-icon .nav-text li{
+        display: block;
+        font-size: 13px;
+    }
+
+    #drop-signin {
+        display: none !important;
+    }
+
+    nav .signin-icon {
+        margin-right: 20px;
+    }
+
+    nav .signin-icon i {
+        margin-inline-end: 0px;
+    }
+
+
+    .logo a{
+        display: flex;
+        width: 128px;
+        margin-left: 30px;
+    }
+
+    /* Navbar Dropdown Start */
+    
+
+    .menu-icon {
+        display: block;
+        margin-left: 20px;
+    }
+
+    .login-menu {
+        right: 15px;
+    }
+    
+
+    
+    /* Navbar Dropdown End */
+
+/* Navbar responsiveness End */
+
+    /* Hero Section 425px */
+    
+    #hero-section {
+        padding-top: 200px;
+    }
+
+    #hero-section .hero-img img {
+        display: none;
+    }
+
+    #hero-section .hero-text h2 {
+        font-size: 65px;
+    }
+
+    #hero-section .hero-text h2 span {
+        font-size: 85px;
+    }
+
+    #hero-section .hero-text p {
+        font-size: 26px;
+    }
+
+}
+/* Main Brand Section Start */
+        @media (max-width: 1200px) {
+            .brands-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .brands-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .view-all-link {
+                float: none;
+                display: block;
+                margin-top: 20px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .brands-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+/* Main Brand Section End */
+/* Footer Media Qurey Start */
+
+@media (max-width: 1024px) {
+    .footer-container {
+        flex-direction: row;
+        justify-content: center;
+        padding: 0 40px;
+    }
+    .footer-column {
+        flex: 1 1 40%;
+        margin: 15px;
+    }
+}
+
+@media (max-width: 768px) {
+    .footer-container {
+        flex-direction: column;
+        align-items: center;
+    }
+    .footer-column {
+        text-align: center;
+        margin: 20px 0;
+    }
+    .footer-bottom {
+        flex-direction: column;
+        text-align: center;
+        gap: 10px;
+    }
+    .payment-icons {
+        justify-content: center;
+    }
+}
+
+@media (max-width: 480px) {
+    .logo {
+        width: 80px;
+    }
+    .footer-column h3 {
+        font-size: 18px;
+    }
+    .footer-column p, .footer-bottom p {
+        font-size: 14px;
+    }
+    .social-icons i {
+        font-size: 16px;
+        margin: 0 8px;
+    }
+    .payment-icons img {
+        width: 24px;
+    }
+}
+
+/* Footer Media Qurey Start */
+
 /* Vertical Scroll Scetion Start */
 @media (max-width: 768px) {
   .cards-container {
