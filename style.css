@@ -1066,6 +1066,62 @@ border: 1px solid rgba(243, 243, 243, 0.28);
 
 /* Testimonials Section End*/
 
+/* Export Section Start */
+/* .export-img {
+    position: absolute;
+    /* z-index: -1000; */
+    /* height: 40vh; */
+    /* margin-bottom: 60px; */
+/* } */
+/* .export-img img { */
+    /* width: 100%; */
+    /* border-radius: 30px; */
+/* } */
+
+.export-container{
+  height: 500px;
+  border-radius: 20px;
+  margin-bottom: 60px;
+ background-image: url(/Images/Banner-images/export-card-img.png);
+ background-size: cover;
+ background-position: center;
+ background-repeat: no-repeat;
+}
+
+.export-text {
+    padding: 80px 50px;
+}
+
+.export-btn {
+    padding: 0px 50px;
+}
+
+.export-text h3 {
+    font-size: 40px;
+    font-weight: 800;
+    font-family: sans-serif;
+    width: 50px;
+    color: white;
+}
+
+.export-text p {
+    font-size: 16px;
+    font-weight: 400;
+    font-family: sans-serif;
+    color: white;
+    padding-top: 20px;
+}
+
+.export-btn button{
+    border: none;
+    background: white;
+    padding: 15px 25px;
+    border-radius: 100px;
+    font-family: sans-serif;
+    font-size: 14px;
+}
+/* Export Section End */
+
 /* Footer Start */
 
 .footer {
@@ -1073,6 +1129,7 @@ border: 1px solid rgba(243, 243, 243, 0.28);
     color: #fff;
     padding: 40px 0 20px;
     width: 100%;
+    margin-top: 40px;
 }
 
 .footer-container {

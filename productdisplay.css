@@ -10,6 +10,15 @@
   height: 400px;
 }
 
+.carousel-item {
+    pointer-events: none;
+  user-select: none;
+}
+
+.product-display {
+  padding: 100px 0;
+}
+
 .product-display-1{
   position: fixed;
   top: 0;
