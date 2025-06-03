@@ -11,6 +11,17 @@
 
 /* Navbar Start */
 
+header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  margin: 0 !important;
+  padding: 0 !important;
+  z-index: 1000;
+  background: transparent;
+}
+
 nav {
   display: flex;
   justify-content: space-evenly;
@@ -612,7 +623,8 @@ textarea {
 }
 .about-section {
   font-family: Arial, sans-serif;
-  margin-top: 50px;
+  margin-top: 9vh !important;
+  /* margin-top: 80px !important; */
 }
 .customer-counter {
   font-size: 48px;
@@ -1101,6 +1113,4 @@ textarea {
 .rotate {
   transform: rotate(180deg);
 }
-
-
 
