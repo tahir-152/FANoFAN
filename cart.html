@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>FAN O FAN - Buy Now</title>
+ <link rel="stylesheet" href="cart.css">
+</head>
+<body>
+  
+  <header>
+   
+    <div id="cart-status" style="margin-top: 15px;">Cart: <span id="cart-count">0</span> items</div>
+    <button id="review-cart-btn" onclick="openCart()">Review Cart</button>
+  </header>
+  <main>
+    <section id="offers-section">
+      <!-- <h2 class="section-title">Special Offers</h2> -->
+      <div class="products" id="offers-products"></div>
+55    </section>
+    <section id="premium-section">
+      <!-- <h2 class="section-title">Premium Fans</h2> -->
+      <div class="products" id="premium-products"></div>
+    </section>
+    <section id="all-section">
+      <!-- <h2 class="section-title">All Fans</h2> -->
+      <div class="products" id="products"></div>5
+    </section>
+  </main>
+
+  <!-- Cart Modal -->
+  <div id="cart-modal" class="modal hidden">
+    <div class="modal-content">
+      <span class="close" onclick="closeCart()">&times;</span>
+      <h2>Your Cart</h2>
+      <div id="cart-items"></div>
+      <div id="cart-total"></div>
+      <label for="cart-payment-method" style="display:block;margin:18px 0 8px 0;text-align:left;">Payment Method</label>
+      <select id="cart-payment-method" style="width:100%;padding:8px 10px;border-radius:6px;border:1px solid #a1887f;font-size:1rem;">
+        <option value="card">Card Payment</option>
+        <option value="cod">Cash on Delivery</option>
+      </select>
+      <button class="pay-btn" onclick="checkoutCart()">Checkout</button>
+    </div>
+  </div>
+
+  <!-- Payment Modal -->
+  <div id="payment-modal" class="modal hidden">
+    <div class="modal-content">
+      <span class="close" onclick="closePaymentModal()">&times;</span>
+      <h2>Card Payment</h2>
+      <div id="product-summary"></div>
+      <form id="payment-form" onsubmit="return handlePayment(event)">
+        <label>
+          Card Number
+          <input type="text" maxlength="19" placeholder="1234 5678 9012 3456" required pattern="\d{4} \d{4} \d{4} \d{4}">
+        </label>
+        <label>
+          Expiry Date
+          <input type="text" maxlength="5" placeholder="MM/YY" required pattern="\d{2}/\d{2}">
+        </label>
+        <label>
+          CVV
+          <input type="password" maxlength="3" placeholder="123" required pattern="\d{3}">
+        </label>
+        <button type="submit" class="pay-btn">Pay Now</button>
+      </form>
+      <div id="payment-success" class="success-message hidden">
+        Payment successful! Thank you for your purchase.
+      </div>
+    </div>
+  </div>
+
+  <script src="cart.js"></script>
+
+  <footer>
+    <p>&copy; 2024 FAN O FAN. All rights reserved.</p>
+  </footer>
+</body>
+</html> 
