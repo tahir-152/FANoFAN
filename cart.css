@@ -28,12 +28,30 @@ body::before {
 }
 
 /* Header and main content */
-header {
+.card-section-11 {
   text-align: center;
   padding: 40px 20px 24px 20px;
   background: transparent;
   position: relative;
   z-index: 1;
+  margin-top: 10px;
+}
+
+.card-section-11 button {
+  background-color: var(--brown);
+  width: 100px;
+  height: 40px;
+  border-radius: 10px;
+  border: none;
+  outline: none;
+  color: #f5f3f0;
+  margin-top: 5px;
+  transition: all 0.1s ease;
+}
+
+.card-section-11 button:hover {
+  background-color: #825e52;
+  transform: scale(1.2px);
 }
 
 h1 {

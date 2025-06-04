@@ -3,103 +3,51 @@ const products = [
   {
     name: "Modern Ceiling Fan",
     price: 89.99,
-    img: "",
+    img: "Images/Fan-images/product-1.png",
     desc: "Silent, energy-efficient, and stylish for any room. Remote control included.",
     rating: 4.7,
     reviews: 124,
     premium: false,
-    offer: true
+    offer: true,
+    detailsPage: "productceiling-1.html"
+
   },
   {
     name: "Classic Table Fan",
     price: 39.99,
-    img: "",
+    img: "Images/Fan-images/product-2.png",
     desc: "Portable, powerful, and perfect for your desk or bedside.",
     rating: 4.3,
     reviews: 89,
     premium: true,
-    offer: false
+    offer: false,
+    detailsPage: "productceiling-2.html"
   },
   {
     name: "Tower Fan",
     price: 59.99,
-    img: "",
+    img: "Images/Fan-images/product-3.png",
     desc: "Sleek design, remote control, and multiple speed settings.",
     rating: 4.5,
     reviews: 102,
     premium: false,
-    offer: true
+    offer: true,
+    detailsPage: "productceiling-3.html"
+
   },
   {
     name: "Vintage Pedestal Fan",
     price: 49.99,
-    img: "",
+    img: "Images/Fan-images/product-4.png",
     desc: "Retro look with modern performance. Adjustable height and tilt.",
     rating: 4.2,
     reviews: 67,
     premium: false,
-    offer: true
+    offer: true,
+    detailsPage: "productceiling-4.html"
+
   },
-  {
-    name: "Smart WiFi Fan",
-    price: 129.99,
-    img: "",
-    desc: "Control from your phone or voice assistant. Ultra-quiet operation.",
-    rating: 4.8,
-    reviews: 210,
-    premium: true,
-    offer: false
-  },
-  {
-    name: "Mini USB Desk Fan",
-    price: 19.99,
-    img: "",
-    desc: "Compact and portable. Perfect for office or travel.",
-    rating: 4.1,
-    reviews: 54,
-    premium: false,
-    offer: true
-  },
-  {
-    name: "Industrial Wall Fan",
-    price: 79.99,
-    img: "",
-    desc: "High airflow for large spaces. Durable and reliable.",
-    rating: 4.4,
-    reviews: 76,
-    premium: false,
-    offer: false
-  },
-  {
-    name: "Bladeless Tower Fan",
-    price: 149.99,
-    img: "",
-    desc: "Safe for kids and pets. Modern, minimalist design.",
-    rating: 4.6,
-    reviews: 98,
-    premium: true,
-    offer: false
-  },
-  {
-    name: "Outdoor Misting Fan",
-    price: 99.99,
-    img: "",
-    desc: "Beat the heat outdoors with a cooling mist. Weather-resistant.",
-    rating: 4.3,
-    reviews: 45,
-    premium: false,
-    offer: true
-  },
-  {
-    name: "Luxury Chandelier Fan",
-    price: 199.99,
-    img: "",
-    desc: "Elegant lighting and cooling in one. Adds luxury to any room.",
-    rating: 4.9,
-    reviews: 32,
-    premium: true,
-    offer: false
-  }
+  
 ];
 
 // Cart logic
@@ -181,7 +129,7 @@ function productCardHTML(p) {
       <div class="stars">${renderStars(p.rating)} <span class="reviews">(${p.reviews} reviews)</span></div>
       <div class="price">$${p.price.toFixed(2)}</div>
       <button class="add-cart-btn" onclick="addToCart('${p.name.replace(/'/g, "\\'")}')">Add to Cart</button>
-      <button class="buy-btn" onclick="openPaymentModal('${p.name.replace(/'/g, "\\'")}', ${p.price})">Buy Now</button>
+       <a class="buy-btn" href="${p.detailsPage}">Buy Now</a>
       <button class="details-btn" onclick="showDetails('${p.name.replace(/'/g, "\\'")}')">Details</button>
     </div>
   `;
