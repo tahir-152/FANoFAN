@@ -96,7 +96,7 @@ $(document).ready(function () {
   // Catergory Section Horizontal scroll End
 
   // Vertical Scroll Section Logic Start
-
+  
   document.addEventListener("DOMContentLoaded", function () {
     const promoCards = document.querySelectorAll(".promo-card");
 
@@ -189,8 +189,9 @@ $(document).ready(function () {
 
   // Testinomial Section Start
 
- class TestimonialCarousel {
+    class TestimonialCarousel {
             constructor() {
+              console.log('In TestimonialCarousel')
                 this.track = document.getElementById('carouselTrack');
                 this.indicators = document.querySelectorAll('.indicator');
                 this.cards = document.querySelectorAll('.testimonial-card');
@@ -316,9 +317,9 @@ $(document).ready(function () {
         }
 
         // Initialize carousel when DOM is loaded
-        document.addEventListener('DOMContentLoaded', () => {
-            new TestimonialCarousel();
-        });
+        // document.addEventListener('DOMContentLoaded', () => {
+        // });
+        new TestimonialCarousel();
 
         // Smooth scroll animations
         const observeOptions = {

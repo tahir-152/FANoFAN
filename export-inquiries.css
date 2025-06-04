@@ -221,15 +221,12 @@
   width: 100%;
 }
 
-
-
 .export-service-imgs-box-text {
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 10px;
   font-family: sans-serif;
-
 }
 
 .export-service-imgs-box p{

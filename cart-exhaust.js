@@ -3,48 +3,48 @@ const products = [
   {
     name: "Modern Ceiling Fan",
     price: 89.99,
-    img: "Images/Fan-images/product-1.png",
+    img: "Images/Fan-images/exhaust-1.png",
     desc: "Silent, energy-efficient, and stylish for any room. Remote control included.",
     rating: 4.7,
     reviews: 124,
     premium: false,
     offer: true,
-    detailsPage: "productceiling-1.html"
+    detailsPage: "productexhaust-1.html"
 
   },
   {
     name: "Classic Table Fan",
     price: 39.99,
-    img: "Images/Fan-images/product-2.png",
+    img: "Images/Fan-images/exhaust-2.png",
     desc: "Portable, powerful, and perfect for your desk or bedside.",
     rating: 4.3,
     reviews: 89,
     premium: true,
     offer: false,
-    detailsPage: "productceiling-2.html"
+    detailsPage: "productexhaust-2.html"
   },
   {
     name: "Tower Fan",
     price: 59.99,
-    img: "Images/Fan-images/product-3.png",
+    img: "Images/Fan-images/exhaust-3.png",
     desc: "Sleek design, remote control, and multiple speed settings.",
     rating: 4.5,
     reviews: 102,
     premium: false,
     offer: true,
-    detailsPage: "productceiling-3.html"
+    detailsPage: "productexhaust-3.html"
 
   },
   {
     name: "Vintage Pedestal Fan",
     price: 49.99,
-    img: "Images/Fan-images/product-4.png",
+    img: "Images/Fan-images/exhaust-4.png",
     desc: "Retro look with modern performance. Adjustable height and tilt.",
     rating: 4.2,
     reviews: 67,
     premium: false,
     offer: true,
-    detailsPage: "productceiling-4.html"
+    detailsPage: "productexhaust-4.html"
 
   },
   
